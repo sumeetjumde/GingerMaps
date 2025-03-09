@@ -138,6 +138,12 @@ const updatePlaceById = async (req,res,next) => {
         const error = new HttpError('something went wrong ,could not update place',500);
         return next(error);
     }
+
+    if(place.creatorId.toString() !== req.userData.userId){
+        const error = new HttpError('You are not allowed to edit this place',401);
+        return next(error);
+    }
+
     //updating the values
     place.title = title;
     place.description = description;
@@ -173,6 +179,11 @@ const deletePlaceById = async (req,res,next) => {
     
     if(!place){
         const error = new HttpError('Could not find a place for this Id',404);
+        return next(error);
+    }
+
+    if(place.creatorId.id !== req.userData.userId){
+        const error = new HttpError('You are not allowed to delete this place',401);
         return next(error);
     }
 

@@ -3,11 +3,15 @@ const express = require('express');
 const placesControllers = require('../controllers/places-controllers'); // Exports from controller having the routes logic.
 const fileUpload = require('../middleware/file-upload');
 const router = express.Router();
+const checkAuth = require('../middleware/check-auth');
+const { ReturnDocument } = require('mongodb');
 
 // Routes
 router.get('/:pid',placesControllers.getPlaceById);
 
 router.get('/user/:uid',placesControllers.getUserById);
+
+router.use(checkAuth);
 
 router.post('/',fileUpload.single('image'),placesControllers.createdPlace);
 

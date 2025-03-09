@@ -10,6 +10,7 @@ import LoadingSpinner from "../../shared/Components/LoadingSpinner";
 import Button from "../../shared/Components/FormElements/Button";
 import { AuthContext } from "../../shared/context/auth-context";
 import { useHttpClient } from "../../shared/hooks/http-hook";
+import Auth from "../../user/Pages/Auth";
 
 const PlaceItem = (props) => {
   const {isLoading,sendRequest,clearError,error} = useHttpClient();
@@ -34,10 +35,17 @@ const PlaceItem = (props) => {
   const confirmDeletetionHandler = async () => {
     console.log("deleting");
     setShowDeleteModal(false);
-    try{
-      await sendRequest(`http://localhost:4000/api/places/${props.id}`,'DELETE');
+    try {
+      await sendRequest(
+        `http://localhost:4000/api/places/${props.id}`,
+        "DELETE",
+        null,
+        {
+          Authorization: "Bearer " + auth.token,
+        }
+      );
       props.onDelete(props.id);
-    }catch(err){}
+    } catch (err) {}
     
   }
 

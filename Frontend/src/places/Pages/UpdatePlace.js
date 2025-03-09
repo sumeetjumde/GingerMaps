@@ -9,6 +9,7 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 import LoadingSpinner from "../../shared/Components/LoadingSpinner";
 import ErrorModal from "../../shared/Components/ErrorModal";
 import { AuthContext } from "../../shared/context/auth-context";
+import Auth from "../../user/Pages/Auth";
 
 const UpdatePlace = () => {
   const auth = useContext(AuthContext);
@@ -69,6 +70,7 @@ const UpdatePlace = () => {
         }),
         {
           "Content-Type": "application/json",
+          Authorization: 'Bearer ' + auth.token,
         }
       );
       history.push('/' + auth.userId + '/places');
