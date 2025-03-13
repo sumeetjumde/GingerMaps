@@ -1,7 +1,4 @@
-import React, { useReducer, useState ,useEffect } from "react";
-
-import Input from "@material-ui/core/Input";
-import TextField from "@material-ui/core/TextField";
+import React, { useReducer,useEffect } from "react";
 import "./Input.css";
 
 const inputreducer = (state, action) => {

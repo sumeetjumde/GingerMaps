@@ -3,14 +3,10 @@ import React, { useContext, useState } from "react";
 import "../Components/PlaceItem.css";
 import Card from "../../shared/Components/Card";
 import Modal from "../../shared/Components/Modal";
-import { popper } from "@popperjs/core";
-import Link from "react-router-dom";
 import ErrorModal from "../../shared/Components/ErrorModal";
-import LoadingSpinner from "../../shared/Components/LoadingSpinner";
 import Button from "../../shared/Components/FormElements/Button";
 import { AuthContext } from "../../shared/context/auth-context";
 import { useHttpClient } from "../../shared/hooks/http-hook";
-import Auth from "../../user/Pages/Auth";
 
 const PlaceItem = (props) => {
   const {isLoading,sendRequest,clearError,error} = useHttpClient();

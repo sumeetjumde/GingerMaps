@@ -13,6 +13,7 @@ import UpdatePlace from "./places/Pages/UpdatePlace";
 import Auth from "./user/Pages/Auth";
 import { AuthContext } from "./shared/context/auth-context";
 import React, { useState, useCallback ,useEffect } from "react";
+import Home from "./user/Components/Home";
 
 
 let logoutTimer;
@@ -74,6 +75,9 @@ useEffect(() => {
   {
     routes = (
       <Switch>
+          <Route path="/home" exact>
+            <Home />
+          </Route>
           <Route path="/" exact>
             <Users />
           </Route>
@@ -93,6 +97,9 @@ useEffect(() => {
   else{
     routes = (
       <Switch>
+          <Route path="/home" exact>
+            <Home />
+          </Route>
           <Route path="/" exact>
             <Users />
           </Route>

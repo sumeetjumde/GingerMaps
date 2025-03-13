@@ -12,7 +12,7 @@
     text-decoration: none;
     padding: 1rem;
     color: white;
-    background: #292929;
+    background: rgb(41, 41, 41);
   }
   
   .user-item a:hover,
@@ -41,7 +41,7 @@
   .user-item:active h2,
   .user-item:hover h3,
   .user-item:active h3 {
-    color: #292929;
+    color: #ffffff;
   }
   
   .user-item__info h3 {
