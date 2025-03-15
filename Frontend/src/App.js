@@ -13,7 +13,7 @@ import UpdatePlace from "./places/Pages/UpdatePlace";
 import Auth from "./user/Pages/Auth";
 import { AuthContext } from "./shared/context/auth-context";
 import React, { useState, useCallback ,useEffect } from "react";
-import Home from "./user/Components/Home";
+import Home from "./user/Pages/Home";
 
 
 let logoutTimer;

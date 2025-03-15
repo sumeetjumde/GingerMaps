@@ -11,6 +11,10 @@ router.get('/:pid',placesControllers.getPlaceById);
 
 router.get('/user/:uid',placesControllers.getUserById);
 
+/* My Code */
+router.get('/',placesControllers.getAllPlaces);
+/* My Code */
+
 router.use(checkAuth);
 
 router.post('/',fileUpload.single('image'),placesControllers.createdPlace);

@@ -7,6 +7,20 @@ const User = require('../models/user');
 const mongoose = require('mongoose');
 
 
+/* My Code */
+const getAllPlaces = async (req, res, next) => {
+    let places;
+    try {
+      places = await Place.find();
+    } catch (err) {
+      return res.status(500).json({ message: 'Fetching places failed, please try again later.' });
+    }
+  
+    res.json({ places: places.map(place => place.toObject({ getters: true })) });
+  };
+/* My Code */
+
+
 // Get Places by Id
 const getPlaceById = async (req,res,next)=>{
     const placeId = req.params.pid;
@@ -229,3 +243,6 @@ exports.getUserById = getUserById;
 exports.createdPlace = createdPlace;
 exports.updatePlaceById = updatePlaceById;
 exports.deletePlaceById = deletePlaceById;
+/* My Code */
+exports.getAllPlaces = getAllPlaces;
+/* My Code */
